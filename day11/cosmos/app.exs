@@ -1,0 +1,6 @@
+file_name = String.trim(IO.gets("Give file_name: "))
+{:ok, content} = File.read("files/#{file_name}")
+content_list = String.trim(content) |> String.split(["\r\n", "\n"])
+processed_image = Cosmos.process_image(content_list)
+IO.puts(Cosmos.sum_galaxies_paths(processed_image))
+IO.puts(Cosmos.sum_galaxies_paths(processed_image, 999999))
